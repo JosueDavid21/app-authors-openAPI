@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+    id "io.freefair.lombok" version "6.6.1"
+    id 'io.quarkus' version '2.16.1.Final'
+}
+
+group 'com.programacion.apps.authors'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    quarkusVersion = '2.16.1.Final'
+}
+
+dependencies {
+    implementation enforcedPlatform("io.quarkus.platform:quarkus-bom:${quarkusVersion}")
+    implementation 'io.quarkus:quarkus-hibernate-orm-panache'
+    implementation 'io.quarkus:quarkus-jdbc-postgresql'
+    implementation 'io.quarkus:quarkus-arc'
+    implementation 'io.quarkus:quarkus-hibernate-orm'
+    implementation 'io.quarkus:quarkus-resteasy'
+    implementation 'io.quarkus:quarkus-resteasy-jackson'
+
+    // -- openAPI
+    implementation group: 'io.quarkus', name: 'quarkus-smallrye-openapi', version: '3.0.0.Alpha4'
+//    implementation 'io.quarkus:quarkus-flyway'
+}
+
